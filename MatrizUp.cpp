@@ -1,23 +1,19 @@
+
 #include <iostream>
 #include <iomanip>
 #include <cmath>
 #include <vector>
 #include <string>
+#include "MatrizHub.h"
 
 using namespace std;
 
 // classse que possui os elementos da matriz (métodos, funções e estrutura)
-class Matriz{
 
-    private: 
-        string nome;
-        
-    public:
-        vector<vector<int>> composicao;
         // a matriz possui apenas duas dimensões
         // a matriz já começa sendo uma matriz 2x2 com 0s 
         // caso queira trcar esta composção, basta usar o método Limpa_matriz
-        Matriz(){
+        Matriz::Matriz(){
             this->composicao = {
                 {0, 0},
                 {0, 0}
@@ -25,16 +21,16 @@ class Matriz{
         }
 
         //getters e setters
-        void setNome(string nome){
+        void Matriz::setNome(string nome){
             this-> nome = nome;
         }
         
-        string getNome(){
+        string Matriz::getNome(){
             return this->nome;
         }
 
         // adiciona um número em alguma posição vazia da matriz
-        void setNumero(int numero){
+        void Matriz::setNumero(int numero){
             int linha, coluna;
             cout << "informe a linha em que deseja adicionar o numero: " << endl;
             cin >> linha;
@@ -64,7 +60,7 @@ class Matriz{
         }
 
         //método que adiciona uma linha ao final da matriz
-        void Adiciona_linha(){
+        void Matriz::Adiciona_linha(){
 
             int linha, coluna;
             vector<int> linha_nova(composicao[0].size(), 0);
@@ -75,7 +71,7 @@ class Matriz{
             //imprime na tela a dimensão da matriz
         }
 
-        void Adiciona_coluna(){
+        void Matriz::Adiciona_coluna(){
             //o que este métofo faz é adicionar um elemento ao final de cada linha
             //os elementos são todos 0, tendo estes que ser alterados posteriormente dpelo método setNumero
             for(int i = 0; i < composicao.size(); i++){
@@ -90,7 +86,7 @@ class Matriz{
             }
         }
 
-        void mostra_matriz(){
+        void Matriz::mostra_matriz(){
             cout << this->nome << endl;
              for (const auto& linha : this->composicao){
                 cout << "|";
@@ -101,14 +97,13 @@ class Matriz{
         }
 
         //procedimennto que limpa a matriz 
-        void Limpa_matriz(){
+        void Matriz::Limpa_matriz(){
             this -> composicao.clear(); 
         }
         /*
         void Alimenta_matriz(){
         
         } */  
-};
 
 //métodos que soma as matrizes
 //obs: soma de matrizes de tamanhos diferentes é indefinido 
