@@ -46,3 +46,6 @@
 # Output e build
 output/
 build
+
+# Livros pdf
+Livros/
